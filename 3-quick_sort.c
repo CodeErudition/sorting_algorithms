@@ -70,6 +70,7 @@ void q_sort_recursive(int *array, int lo, int hi, size_t size)
 	if (lo < hi)
 	{
 		int pi = partition(array, lo, hi, size);
+
 		q_sort_recursive(array, lo, pi - 1, size);
 		q_sort_recursive(array, pi + 1, hi, size);
 	}
