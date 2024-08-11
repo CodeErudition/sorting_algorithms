@@ -2,9 +2,8 @@
 
 /**
  * counting_sort - A function that sorts an array of integers in
- * ascending order using
+ * ascending order using the Counting sort algorithm.
  *
- * the Counting sort algorithm.
  * @array: The array to be sorted.
  * @size: The size of the array.
  */
@@ -34,10 +33,10 @@ void counting_sort(int *array, size_t size)
 	for (i = 0; i < size; i++)
 		array_count[array[i]]++;
 
-	print_array(array_count, max_value + 1);
-
 	for (i = 1; i <= (size_t)max_value; i++)
 		array_count[i] += array_count[i - 1];
+
+	print_array(array_count, max_value + 1);
 
 	array_out = malloc(sizeof(int) * size);
 	if (array_out == NULL)
