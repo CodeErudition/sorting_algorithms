@@ -31,7 +31,7 @@ void print_subarray(int *array, int start, int end)
  * @right: Right index of the sub-array to be sorted
  * @m_temp: Temporary array for merging
  */
-
+void merger(int *array, int left, int middle, int right, int *m_temp);
 void merger(int *array, int left, int middle, int right, int *m_temp)
 {
 	int i, j, k;
