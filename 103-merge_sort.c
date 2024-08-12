@@ -98,7 +98,7 @@ void m_sort_recursive(int *array, int left, int right, int *m_temp)
 {
 	if (left < right)
 	{
-		int middle = left + (right - left) / 2;
+		int middle = left + (right - left + 1) / 2 - 1;
 
 		m_sort_recursive(array, left, middle, m_temp);
 		m_sort_recursive(array, middle + 1, right, m_temp);
