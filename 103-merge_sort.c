@@ -1,6 +1,28 @@
 #include "sort.h"
 
 /**
+ * print_subarray - A function that prints a sub-array
+ *
+ * @array: The array to be printed
+ * @start: Start index of the sub-array
+ * @end: End index of the sub-array
+ */
+
+void print_subarray(int *array, int start, int end)
+{
+	int i;
+
+	printf("[");
+	for (i = start; i <= end; i++)
+	{
+		printf("%d", array[i]);
+		if (i < end)
+			printf(", ");
+	}
+	printf("]\n");
+}
+
+/**
  * merger - A function that merges two sub-arrays of array[].
  * First sub-array is array[left..middle]
  * Second sub-array is array[middle+1..right]
@@ -15,6 +37,12 @@
 void merger(int *array, int left, int middle, int right, int *m_temp)
 {
 	int i, j, k;
+
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_subarray(array, left, middle);
+	printf("[right]: ");
+	print_subarray(array, middle + 1, right);
 
 	i = left;
 	j = middle + 1;
@@ -53,8 +81,10 @@ void merger(int *array, int left, int middle, int right, int *m_temp)
 	{
 		array[i] = m_temp[i];
 	}
-}
 
+	printf("[Done]: ");
+	print_subarray(array, left, right);
+}
 
 /**
  * m_sort_recursive - A function that implements the recursive
@@ -76,11 +106,8 @@ void m_sort_recursive(int *array, int left, int right, int *m_temp)
 		m_sort_recursive(array, middle + 1, right, m_temp);
 
 		merger(array, left, middle, right, m_temp);
-
-		print_array(array + left, right - left + 1);
 	}
 }
-
 
 /**
  * merge_sort - A function that sorts an array of integers in ascending
