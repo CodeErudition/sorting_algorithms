@@ -1,8 +1,7 @@
 #include "sort.h"
 
 /**
- * print_subarray - A function that prints a sub-array
- *
+ * print_subarray - Prints a sub-array
  * @array: The array to be printed
  * @start: Start index of the sub-array
  * @end: End index of the sub-array
@@ -12,14 +11,13 @@ void print_subarray(int *array, int start, int end)
 {
 	int i;
 
-	printf("[");
 	for (i = start; i <= end; i++)
 	{
 		printf("%d", array[i]);
 		if (i < end)
 			printf(", ");
 	}
-	printf("]\n");
+	printf("\n");
 }
 
 /**
