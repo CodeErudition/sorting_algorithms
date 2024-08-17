@@ -15,19 +15,16 @@ void swapper(int *a, int *b)
 }
 
 /**
- * print_step - A function that print the merging step.
+ * print_array_section - A helper function to print a portion of the array.
  *
- * @array: Array to be printed.
- * @low: Starting index of the sequence.
- * @count: Number of elements in the sequence.
- * @direction: Direction of sorting (1 for UP, 0 for DOWN).
+ * @array: The array to print.
+ * @low: The starting index of the section.
+ * @count: The number of elements in the section.
  */
 
-void print_step(int *array, int low, int count, int direction)
+void print_array_section(int *array, int low, int count)
 {
 	int i;
-
-	printf("Merging [%d/%d] (%s):\n", count, count, direction ? "UP" : "DOWN");
 	for (i = low; i < low + count; i++)
 	{
 		if (i > low)
@@ -38,8 +35,7 @@ void print_step(int *array, int low, int count, int direction)
 }
 
 /**
- * bitonic_merge - A function that merges and sorts a bitonic
- * sequence.
+ * bitonic_merge - A function that merges and sorts a bitonic sequence.
  *
  * @array: Array to be sorted.
  * @low: Starting index of the sequence.
@@ -81,14 +77,17 @@ void b_sort_recursive(int *array, int low, int count, int direction)
 	{
 		int mid = count / 2;
 
+		printf("Merging [%d/%d] (%s):\n", count, count, direction ? "UP" : "DOWN");
+		print_array_section(array, low, count);
+
 		b_sort_recursive(array, low, mid, 1);
-		print_step(array, low, mid, 1);
 
 		b_sort_recursive(array, low + mid, mid, 0);
-		print_step(array, low + mid, mid, 0);
 
 		bitonic_merge(array, low, count, direction);
-		print_step(array, low, count, direction);
+
+		printf("Result [%d/%d] (%s):\n", count, count, direction ? "UP" : "DOWN");
+		print_array_section(array, low, count);
 	}
 }
 
