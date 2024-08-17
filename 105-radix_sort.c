@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * max_value - A utility function to get the maximum value
+ * max_value - A helper function to get the maximum value
  * in the array
  *
  * @array: The array to find the maximum value
